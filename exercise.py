@@ -20,13 +20,11 @@ contact_data = [
   ["First Name", "Last Name", "Favourite Number"]
 ]
 
-
-
 st.title("Contact Info Collector")
 
 contact_info = st.form(key="my_form")
 
-contact_info.header("Insert your contact informaation below")
+contact_info.header("Insert your contact information below")
 first_name = contact_info.text_input("Enter your first name: ")
 last_name = contact_info.text_input("Enter your last name: ")
 fav_num = contact_info.number_input("Enter your favourite number: ")
@@ -34,9 +32,9 @@ fav_num = contact_info.number_input("Enter your favourite number: ")
 contact_info.form_submit_button("Register")
 
 if len(first_name.strip()) == 0:
-  st.write("First name cannot be empty")
+  st.warning("First name cannot be empty")
 elif len(last_name.strip()) == 0:
-  st.write("Last name cannot be empty")
+  st.warning("Last name cannot be empty")
 elif len(first_name.strip()) > 0 and len(last_name.strip()) > 0:
   contact_data.append([first_name, last_name, fav_num])
 
