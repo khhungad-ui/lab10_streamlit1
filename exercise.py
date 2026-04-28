@@ -32,9 +32,9 @@ fav_num = contact_info.number_input("Enter your favourite number: ")
 contact_info.form_submit_button("Register")
 
 if len(first_name.strip()) == 0:
-  st.warning("First name cannot be empty")
+  st.error("First name cannot be empty")
 elif len(last_name.strip()) == 0:
-  st.warning("Last name cannot be empty")
+  st.error("Last name cannot be empty")
 elif len(first_name.strip()) > 0 and len(last_name.strip()) > 0:
   contact_data.append([first_name, last_name, fav_num])
 
