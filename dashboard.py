@@ -8,11 +8,12 @@ import numpy as np
 # -------------------------------
 # Username
 # -------------------------------
-name = st.text_input("Enter your name:")
+text_input_container = st.empty()
+name = text_input_container.text_input("Enter your name:")
 
 
 if name != "":
-          name.label_visibility("hidden")
+          text_input_container.empty()
           # -------------------------------
           # Title and Description
           # -------------------------------
