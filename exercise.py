@@ -16,19 +16,21 @@ import streamlit as st
 import csv
 import pandas as pd
 
+# instead of contact_data = [] as a variable, st.session_state['contact_data'] is the new variable that saves the data between reruns.
 if 'contact_data' not in st.session_state:
     st.session_state['contact_data'] = [
   ["First Name", "Last Name", "Favourite Number"]
 ]
 
-
 st.title("Contact Info Collector")
 
+# all values are not rerun until the submit button is pressed
+# form works like a class
 contact_info = st.form(key="my_form")
 
 contact_info.header("Insert your contact information below")
-first_name = contact_info.text_input("Enter your first name: ")
-last_name = contact_info.text_input("Enter your last name: ")
+first_name = contact_info.text_input("Enter your first name: ", placeholder = "John")
+last_name = contact_info.text_input("Enter your last name: ", placeholder = "Smith")
 fav_num = contact_info.number_input("Enter your favourite number: ")
 
 contact_info.form_submit_button("Register")
@@ -49,4 +51,6 @@ elif len(first_name.strip()) > 0 and len(last_name.strip()) > 0:
 
   df = pd.read_csv("contacts.csv")
   st.dataframe(df)
+else:
+    st.exception("Something went wrong, please try again.")
   
