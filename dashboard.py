@@ -12,7 +12,7 @@ name = st.text_input("Enter your name:")
 
 
 if name != "":
-          name.label_visibility = "hidden"
+          name.label_visibility("hidden")
           # -------------------------------
           # Title and Description
           # -------------------------------
