@@ -9,7 +9,7 @@ import numpy as np
 # Username
 # -------------------------------
 text_input_container = st.empty()
-name = text_input_container.text_input("Enter your name:")
+name = text_input_container.text_input("Enter your name before the application runs:")
 
 
 if name != "":
