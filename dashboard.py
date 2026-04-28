@@ -6,9 +6,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # -------------------------------
+# Username
+# -------------------------------
+name = st.text_input("Enter your name:")
+
+# -------------------------------
 # Title and Description
 # -------------------------------
-st.title("Business Sales Dashboard")
+st.title(f"{name}'s Sales Dashboard")
 st.write("Analyse monthly sales data interactively!")
 
 # -------------------------------
