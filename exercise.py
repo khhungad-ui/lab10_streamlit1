@@ -16,9 +16,11 @@ import streamlit as st
 import csv
 import pandas as pd
 
-contact_data = [
+if 'contact_data' not in st.session_state:
+    st.session_state['contact_data'] = [
   ["First Name", "Last Name", "Favourite Number"]
 ]
+
 
 st.title("Contact Info Collector")
 
@@ -36,14 +38,14 @@ if len(first_name.strip()) == 0:
 elif len(last_name.strip()) == 0:
   st.error("Last name cannot be empty")
 elif len(first_name.strip()) > 0 and len(last_name.strip()) > 0:
-  contact_data.append([first_name, last_name, fav_num])
+  st.session_state['contact_data'].append([first_name, last_name, fav_num])
 
   contact_info.success("Your contact information is saved! Please review your information is correct below")
   contact_info.info(f"First Name: {first_name}, Last Name: {last_name}, Favourite Number: {fav_num}")
 
   with open("contacts.csv", 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerows(contact_data)
+    writer.writerows(st.session_state['contact_data'])
 
   df = pd.read_csv("contacts.csv")
   st.dataframe(df)
